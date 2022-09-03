@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legénység</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1 data-th-text="${spaceship.name}"></h1>
+    <table>
+        <tr>
+            <th>Név</th>
+            <th>Rang</th>
+        </tr>
+        <tr data-th-each="c : ${crew}">
+            <td data-th-text="${c.crewName}"></td>
+            <td data-th-text="${c.crewRank}"></td>
+        </tr>
+    </table>
+</body>
+</html>

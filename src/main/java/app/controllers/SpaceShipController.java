@@ -6,6 +6,7 @@ import app.services.SpaceShipService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -45,6 +46,17 @@ public class SpaceShipController {
         model.addAttribute("active", active);
 
         return "spaceships";
+    }
+
+    @GetMapping("/spaceships/{id}")
+    public String getCrewMembers(@PathVariable() long id, Model model) {
+
+        SpaceShip spaceship = spaceShipService.getById(id);
+
+        model.addAttribute("spaceship", spaceship);
+        model.addAttribute("crew", spaceship.getCrews());
+
+        return "crew";
     }
 
 }

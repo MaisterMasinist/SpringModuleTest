@@ -5,6 +5,7 @@ import app.repositories.SpaceShipRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SpaceShipService {
@@ -17,6 +18,13 @@ public class SpaceShipService {
 
     public List<SpaceShip> getAllSpaceShip() {
         return (List<SpaceShip>) spaceShipRepo.findAll();
+    }
+
+    public SpaceShip getById(long id) {
+
+        Optional<SpaceShip> spaceship = spaceShipRepo.findById(id);
+
+        return spaceship.orElseGet(SpaceShip::new);
     }
 
     public List<SpaceShip> getAllSpaceShipWhereIsActive(boolean isActive) {
