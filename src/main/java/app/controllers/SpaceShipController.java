@@ -29,6 +29,14 @@ public class SpaceShipController {
         return "spaceship_new";
     }
 
+    @PostMapping(value = {"/spaceship"})
+    public String saveSpaceShip(SpaceShip spaceShip) {
+
+        spaceShipService.saveNewSpaceShip(spaceShip);
+
+        return "redirect:/spaceships";
+    }
+
     @GetMapping("/spaceships")
     public String searchSpaceShip(@RequestParam(required = false, defaultValue = "") String active, Model model) {
 

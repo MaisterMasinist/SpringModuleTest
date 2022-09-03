@@ -31,4 +31,8 @@ public class SpaceShipService {
         return spaceShipRepo.findSpaceShipByActive(isActive);
     }
 
+    public void saveNewSpaceShip(SpaceShip spaceShip){
+        spaceShipRepo.save(spaceShip);
+    }
+
 }

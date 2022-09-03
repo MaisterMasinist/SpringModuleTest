@@ -11,7 +11,7 @@
 
 <div id="container">
 
-    <form data-th-object="${newShip}">
+    <form class="form" data-th-action="@{/spaceship}" data-th-object="${newShip}" method="post">
 
         <select data-th-field="*{spaceShipClass}">
             <option data-th-each="shipClass : ${shipClasses}"
@@ -19,6 +19,11 @@
                     data-th-text="${shipClass}">
             </option>
         </select>
+
+        <input placeholder="név" type="text" data-th-field="*{name}" />
+        <input type="checkbox" data-th-field="*{active}" />
+
+        <button class="send_button">Új hajó létrehozása</button>
 
     </form>
 

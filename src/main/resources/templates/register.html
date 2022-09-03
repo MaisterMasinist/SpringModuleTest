@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Regisztráció</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <form data-th-action="@{/register}" method="post" data-th-object="${officer}">
-        <label for="username">Felhasználónév:</label>
-        <input id="username" type="text" data-th-field="*{username}"/>
-        <label for="password">Jelszó:</label>
-        <input id="password" type="password" data-th-field="*{password}"/>
-        <button type="submit">Regisztráció</button>
-    </form>
-    <h4 data-th-text="${fail}"></h4>
+    <div id="container">
+        <div class="form">
+            <h1>Regisztráció</h1>
+            <p class="error" data-th-text="${fail}"></p>
+            <form class="form" data-th-action="@{/register}" method="post" data-th-object="${officer}">
+                <input placeholder="felhasználónév" type="text" data-th-field="*{username}"/>
+                <input placeholder="jelszó" type="password" data-th-field="*{password}"/>
+                <button class="send_button" type="submit">Regisztráció</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

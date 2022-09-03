@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legénység tagjai</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <form data-th-action="@{/crewmembers}" method="get">
+        <label for="search">Keresés névben:</label>
+        <input id="search" type="text" placeholder="név"  name="search"/>
+        <button type="submit">Keresés</button>
+    </form>
+   <table>
+      <tr>
+        <th>Név</th>
+        <th>Rang</th>
+        <th>Szolgálati hajó neve</th>
+     </tr>
+       <tr data-th-each="c : ${crew}">
+           <td data-th-text="${c.crewName}"></td>
+           <td data-th-text="${c.crewRank}"></td>
+           <td data-th-text="${c.dutyShip.name}"></td>
+       </tr>
+  </table>
+</body>
+</html>
